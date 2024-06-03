@@ -15,21 +15,6 @@ using std::chrono::nanoseconds;
 using std::chrono::duration_cast;
 using namespace std;
 
-/*start = steady_clock::now();
-					res = getValue(list, index);
-					end = steady_clock::now();
-					result = duration_cast<nanoseconds>(end - start);
-
-					if (res == 0.5) {
-						cout << "Введённый индекс выходит за рамки списка!!!\n";
-					}
-					else {
-						cout << "На позиции " << index << " находится значение " << res << '\n';
-					}
-
-					cout << "Время на получение элемента: " << (result.count() / 1000000.0) << "ms(" << result.count() << "ns)\n";
-*/
-
 time_point<steady_clock, duration<__int64, ratio<1, 1000000000>>> start, finish;
 nanoseconds result;
 
@@ -343,6 +328,7 @@ public:
     void destroyTree() 
     {
         destroyTreeRec(mainRoot);
+        mainRoot = nullptr;
     }
 
     void destroyTreeRec(TreeNode* root)
